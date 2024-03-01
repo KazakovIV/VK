@@ -1,3 +1,0 @@
-username = input('Введите имя')
-print('Hello’ ,username)
-
