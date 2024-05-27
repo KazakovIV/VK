@@ -1,16 +1,11 @@
-from itertools import zip_longest
-from typing import List, Tuple
+import datetime
 
+days, seconds = int(input()), int(input())
 
-def fill_missing_values(values_list_1: List[int], values_list_2: List[int]) -> List[Tuple[int, int]]:
-    result = []
-    for val1, val2 in zip_longest(values_list_1, values_list_2, fillvalue=1):
-        result.append((val1, val2))
-    return result
+def shift_time(days: int, seconds: int):
+    base_time = datetime.datetime(2023, 1, 1, 12, 30, 0)
+    delta = datetime.timedelta(days=days, seconds=seconds)
+    shifted_time = base_time + delta
+    return shifted_time.day, shifted_time.second
 
-
-code = []
-while data := input():
-    code.append(data)
-code = "\n".join(code)
-exec(code)
+print(shift_time(days, seconds))
