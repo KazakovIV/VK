@@ -1,11 +1,17 @@
 import datetime
+from collections import Counter
+from typing import List
 
-days, seconds = int(input()), int(input())
 
-def shift_time(days: int, seconds: int):
-    base_time = datetime.datetime(2023, 1, 1, 12, 30, 0)
-    delta = datetime.timedelta(days=days, seconds=seconds)
-    shifted_time = base_time + delta
-    return shifted_time.day, shifted_time.second
+def most_common_months(dates: List[str], n) -> List[int]:
+    months = [int(date.split('-')[1]) for date in dates]
+    month_counts = Counter(months)
+    most_common = month_counts.most_common(n)
+    return [month for month, _ in most_common]
 
-print(shift_time(days, seconds))
+
+code = []
+while data := input():
+    code.append(data)
+code = "\n".join(code)
+exec(code)
